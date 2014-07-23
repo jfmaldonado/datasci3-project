@@ -8,6 +8,13 @@ In order to use the script "run_analysis.R", follow the next steps:
 4.  In the line 78 of the script, replace the parameter of "setwd" by the path of the folder in which you descompressed the input data (for example, "C:/Users/IAmGreat/Downloads/UCI HAR Dataset").
 5.  Execute the entire script.
 
+The scripts works in the following way:
+
+1.  Invokes the function "getMergedData()" which returns the data in the folders 'test' and 'train' as a data frame.
+2.  The function "getMergedData()" invokes the function "readData()" two times for read the 'test' and the 'train' data (this functions reads 'x', 'y' and 'subject' data, concatenates their values into a single data frame and removes all columns that are neither a mean value or a standard deviation value), and the groups this information into a data frame.
+3.  Using the 'aggregate()' function, the merged data is processed in order to calculate the average of each variable for each activity and each subject.
+4.  The result data frame is stored in a CVS file.
+
 # Code book
 
 ## Grouping variables
@@ -49,6 +56,3 @@ The set of variables that were estimated from these signals are:
 
 -  mean..: Mean value
 -  std..: Standard deviation
-
-
-
